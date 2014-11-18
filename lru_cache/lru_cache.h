@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <iostream>
 
-#include <boost/foreach.hpp>
 #include <boost/bimap.hpp>
 #include <boost/bimap/list_of.hpp>
 #include <boost/bimap/unordered_set_of.hpp>
@@ -15,12 +14,12 @@
 /// @note The container is not thread-safe.
 /// @date Created by bbetke on 18/11/2014.
 
-/// Copyright (c) 2014 bbetke. All rights reserved.
-
 /// The unordered_set is a boost version of set which uses hash tables instead of trees to store the elements
 /// The set_of are generally implemented using balanced binary trees so that lookup time has logarithmic complexity.
 /// According to boost documentation this is generally okay, but in many cases a hash table can perform better,
 /// as accessing data has constant complexity, on average.
+/// To ensure that both ‘put’ and ‘get’ operations should be fast, even when the cache is very large (i.e. much faster than O(N)),
+/// unordered_set has been selected for this purpose for its average constant complexity O(1)
 
 template< typename KEY, typename VALUE >
 class lru_cache
@@ -111,14 +110,6 @@ void lru_cache< KEY, VALUE >::put( const KEY& a_key, const VALUE& a_value )
         // in either case inserting a new element will put it at the end and hence make it the most recently used
         m_cache.insert( Element( a_key, a_value ) );
     }
-    
-    BOOST_FOREACH( typename Container::right_reference p, m_cache.right )
-    {
-        std::cout <<"right side: " << p.first << "-->" << p.second << std::endl;
-    }
-    
-    std::cout <<"size: " << m_cache.size() << std::endl;
-    
 }
 
 #endif

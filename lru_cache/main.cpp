@@ -8,16 +8,6 @@
 
 #include <iostream>
 
-// TODO make tests for the requirements:
-// A cache item consists of a KEY and a VALUE.
-// When instantiated, the cache has a fixed limit on the number of items that can be stored.
-// The cache cannot store duplicate keys. If a ‘put’ operation
-// is performed using a KEY that already exists in the cache, the associated VALUE for that KEY is updated.
-// Both ‘put’ and ‘get’ operations will make the item the most-recently-used item.
-// If an item is inserted when the cache is full, then
-// the least-recently-used item is evicted prior to inserting the new item.
-// Both ‘put’ and ‘get’ operations should be fast, even when the cache is very large (i.e. much faster than O(N)).
-
 
 int main( int argc, const char * argv[] )
 {
