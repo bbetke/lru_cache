@@ -28,7 +28,6 @@ public:
     lru_cache( size_t a_max_items );
     ~lru_cache();
     
-    /// using boost optional instead of std optional
     boost::optional< VALUE > get( const KEY& a_key );
     
     void put( const KEY& a_key, const VALUE& a_value );
@@ -58,6 +57,7 @@ lru_cache< KEY, VALUE >::~lru_cache()
 {
 }
 
+/// using boost optional instead of std optional
 template< typename KEY, typename VALUE >
 boost::optional< VALUE > lru_cache< KEY, VALUE >::get( const KEY& a_key )
 {
@@ -93,7 +93,6 @@ void lru_cache< KEY, VALUE >::put( const KEY& a_key, const VALUE& a_value )
     const typename Container::left_iterator ci = m_cache.left.find( a_key );
     if( ci != m_cache.left.end() )
     {
-        //m_cache.project_right( ci )->first = a_value;
         m_cache.left.replace_data( ci, a_value );
         m_cache.right.relocate( m_cache.right.end(), m_cache.project_right( ci ) );
     }
