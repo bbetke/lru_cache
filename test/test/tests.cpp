@@ -34,8 +34,7 @@ BOOST_AUTO_TEST_CASE( test_capacity )
     BOOST_CHECK_EQUAL( cache.size(), 5 );
 }
 
-// The cache cannot store duplicate keys. If a ‘put’ operation
-// is performed using a KEY that already exists in the cache, the associated VALUE for that KEY is updated.
+// The cache cannot store duplicate keys.
 BOOST_AUTO_TEST_CASE( test_no_duplicates )
 {
     lru_cache< std::string, int > cache( 5 );
@@ -50,6 +49,7 @@ BOOST_AUTO_TEST_CASE( test_no_duplicates )
     BOOST_CHECK_EQUAL( cache.size(), 1 );
 }
 
+// If a ‘put’ operation is performed using a KEY that already exists in the cache, the associated VALUE for that KEY is updated.
 BOOST_AUTO_TEST_CASE( test_update_existing )
 {
     lru_cache< std::string, int > cache( 5 );
@@ -131,6 +131,9 @@ BOOST_AUTO_TEST_CASE( test_lru_with_get )
     BOOST_REQUIRE( value_5 );
     BOOST_REQUIRE( value_6 );
     BOOST_REQUIRE( value_1 );
+    
+    // expect value to be updated after put operation
+    BOOST_CHECK_EQUAL( value_6.get(), 6 );
     
     // expected capacity is 5
     BOOST_CHECK_EQUAL( cache.size(), 5 );

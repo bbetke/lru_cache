@@ -16,7 +16,7 @@
 
 /// The unordered_set is a boost version of set which uses hash tables instead of trees to store the elements
 /// The set_of are generally implemented using balanced binary trees so that lookup time has logarithmic complexity.
-/// According to boost documentation this is generally okay, but in many cases a hash table can perform better,
+/// According to boost documentation this is acceptable, but in many cases a hash table can perform better,
 /// as accessing data has constant complexity, on average.
 /// To ensure that both ‘put’ and ‘get’ operations should be fast, even when the cache is very large (i.e. much faster than O(N)),
 /// unordered_set has been selected for this purpose for its average constant complexity O(1)
@@ -75,7 +75,7 @@ boost::optional< VALUE > lru_cache< KEY, VALUE >::get( const KEY& a_key )
     else
     {
         // key not found, cache miss, not going to throw or add in a default key value to the cache now
-        // given that the hint in the class code was to use optional instead
+        // given that the hint in the class code provided was to use optional instead
     }
     
     return val;
