@@ -11,6 +11,6 @@
 
 int main( int argc, const char * argv[] )
 {
-    std::cout << "hello justin" << std::endl;
+    std::cout << "main..." << std::endl;
     return 0;
 }

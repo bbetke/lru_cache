@@ -15,5 +15,5 @@ script:
 - cd lru_cache
 - g++ -I /usr/lib/boost main.cpp -o main
 after_success:
-- echo "Worked!"
+- echo "Success!"
 - ./main
