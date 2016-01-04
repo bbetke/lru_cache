@@ -6,7 +6,8 @@ before_install:
 - echo $LC_ALL
 - echo $TRAVIS_OS_NAME
 script:
-- g++ lru_cache/main.cpp
+- cd lru_cache
+- g++ main.cpp
 after_success:
 - echo "Worked!"
 
