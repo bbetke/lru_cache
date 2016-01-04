@@ -1,6 +1,12 @@
 language: cpp
 compiler:
-- gcc
+- gcc -I /usr/lib/boost
+addons:
+  apt:
+    source:
+    - boost-latest
+    packages:
+    - libbost1.59-all-dev
 before_install:
 - echo $LANG
 - echo $LC_ALL
