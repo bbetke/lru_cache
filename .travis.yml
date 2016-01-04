@@ -6,7 +6,7 @@ addons:
     source:
     - boost-latest
     packages:
-    - libboost1.59-all-dev
+    - libboost-all-dev
 before_install:
 - echo $LANG
 - echo $LC_ALL
