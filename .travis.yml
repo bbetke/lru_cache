@@ -1,6 +1,6 @@
 language: cpp
 compiler:
-- gcc -I /usr/lib/boost
+- gcc
 addons:
   apt:
     source:
@@ -13,7 +13,7 @@ before_install:
 - echo $TRAVIS_OS_NAME
 script:
 - cd lru_cache
-- g++ main.cpp
+- g++ -I /usr/lib/boost main.cpp
 after_success:
 - echo "Worked!"
 
