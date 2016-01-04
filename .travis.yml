@@ -8,5 +8,5 @@ before_install:
 script:
 - g++ lru_cache/main.cpp
 after_success:
-echo "Worked!"
+- echo "Worked!"
 
