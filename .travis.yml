@@ -1,4 +1,12 @@
 language: cpp
 compiler:
 - gcc
+before_install:
+- echo $LANG
+- echo $LC_ALL
+- echo $TRAVIS_OS_NAME
+script:
+++ g++ lru_cache/main.cpp
+after_success:
+echo "Worked!"
 
